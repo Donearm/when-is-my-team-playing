@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	$(".teammatches").click(function(event) {
-/*	$("#atleticommatches").click(function(event) { */
+		// declare variables needed to differentiate the AJAX request
+		// according to which team matches were requested
 		let teamurl, teamName, teamId
 		if (event.target.id == 'atleticommatches') {
 			teamurl = 'https://api.football-data.org/v2/teams/78/matches?status=SCHEDULED';
@@ -56,128 +57,46 @@ $(document).ready(function() {
 		$("#fixtures").html(" ");
 		$("#standings").html(" ");
 	});
-	$("#ligarequest").click(function(event) {
-		const ligaurl = 'https://api.football-data.org/v2/competitions/PD/standings';
+	$(".leaguerequests").click(function(event) {
+		// declare variables needed to differentiate the AJAX request
+		// according to which league standings was requested
+		let leagueurl, leagueName
+		if (event.target.id == 'ligarequest') {
+			leagueurl = 'https://api.football-data.org/v2/competitions/PD/standings';
+			leagueName = 'Liga';
+		} else if (event.target.id == 'plrequest') {
+			leagueurl = 'https://api.football-data.org/v2/competitions/PL/standings';
+			leagueName = 'Premier League';
+		} else if (event.target.id == 'bundesligarequest') {
+			leagueurl = 'https://api.football-data.org/v2/competitions/BL1/standings';
+			leagueName = 'Bundesliga';
+		} else if (event.target.id == 'seriearequest') {
+			leagueurl = 'https://api.football-data.org/v2/competitions/SA/standings';
+			leagueName = 'Serie A';
+		} else {
+			return 1
+		};
 		$.ajax({
 			headers: { 'X-Auth-Token': '6b89a387b385470d833ab3b614a5eb67' },
-			url: ligaurl,
+			url: leagueurl,
 			dataType: 'text',
 			type: 'GET',
 			success: function(data, textStatus, jqXHR) {
-				let liga = JSON.parse(data);
-				let localStandingsUpdated = new Date(liga.competition.lastUpdated);
+				let parsedData = JSON.parse(data);
+				let localStandingsUpdated = new Date(parsedData.competition.lastUpdated);
 				let tableStructure = []; // array to contain the standings' table
 				// Header of the standings' table
 				let tableHeader = '<thead class="thead-dark"><tr><th scope="col">Team</th><th scope="col">Games</th><th scope="col">Won</th><th scope="col">Drawn</th><th scope="col">Lost</th><th scope="col">Points</th></tr></thead><tbody>';
 
 				$("#standings").empty();
-				$("#standings").append('<p>Liga standings as of ' + localStandingsUpdated.toString() + '</p>');
+				$("#standings").append('<p>' + leagueName + ' standings as of ' + localStandingsUpdated.toString() + '</p>');
 
 				// push into array the initial <table> tag and then the
 				// header
 				tableStructure.push('<table class="table table-hover">', tableHeader);
 				// for loop to push into array each team's data
-				for (var j = 0; j < liga.standings[0].table.length; j++) {
-					let currentTeam = liga.standings[0].table[j];
-					tableStructure.push('<tr><th scope="row">' + currentTeam.team.name + '</th><td>' + currentTeam.playedGames + '</td><td>' + currentTeam.won + '</td><td>' + currentTeam.draw + '</td><td>' + currentTeam.lost + '</td><td>' + currentTeam.points + '</td></tr>');
-				};
-				// close <tbody> and <table> by pushing them as last
-				// elements of array
-				tableStructure.push('</tbody></table>');
-				// finally, append standings' table to DOM
-				$("#standings").append(tableStructure.join(''));
-			},
-		});
-	});
-	$("#plrequest").click(function(event) {
-		const plurl = 'https://api.football-data.org/v2/competitions/PL/standings';
-		$.ajax({
-			headers: { 'X-Auth-Token': '6b89a387b385470d833ab3b614a5eb67' },
-			url: plurl,
-			dataType: 'text',
-			type: 'GET',
-			success: function(data, textStatus, jqXHR) {
-				let pl = JSON.parse(data);
-				let localStandingsUpdated = new Date(pl.competition.lastUpdated);
-				let tableStructure = []; // array to contain the standings' table
-				// Header of the standings' table
-				let tableHeader = '<thead class="thead-dark"><tr><th scope="col">Team</th><th scope="col">Games</th><th scope="col">Won</th><th scope="col">Drawn</th><th scope="col">Lost</th><th scope="col">Points</th></tr></thead><tbody>';
-
-				$("#standings").empty();
-				$("#standings").append('<p>Premier League standings as of ' + localStandingsUpdated.toString() + '</p>');
-
-				// push into array the initial <table> tag and then the
-				// header
-				tableStructure.push('<table class="table table-hover">', tableHeader);
-				// for loop to push into array each team's data
-				for (var j = 0; j < pl.standings[0].table.length; j++) {
-					let currentTeam = pl.standings[0].table[j];
-					tableStructure.push('<tr><th scope="row">' + currentTeam.team.name + '</th><td>' + currentTeam.playedGames + '</td><td>' + currentTeam.won + '</td><td>' + currentTeam.draw + '</td><td>' + currentTeam.lost + '</td><td>' + currentTeam.points + '</td></tr>');
-				};
-				// close <tbody> and <table> by pushing them as last
-				// elements of array
-				tableStructure.push('</tbody></table>');
-				// finally, append standings' table to DOM
-				$("#standings").append(tableStructure.join(''));
-			},
-		});
-	});
-	$("#bundesligarequest").click(function(event) {
-		const bundesligaurl = 'https://api.football-data.org/v2/competitions/BL1/standings';
-		$.ajax({
-			headers: { 'X-Auth-Token': '6b89a387b385470d833ab3b614a5eb67' },
-			url: bundesligaurl,
-			dataType: 'text',
-			type: 'GET',
-			success: function(data, textStatus, jqXHR) {
-				let bundesliga = JSON.parse(data);
-				let localStandingsUpdated = new Date(bundesliga.competition.lastUpdated);
-				let tableStructure = []; // array to contain the standings' table
-				// Header of the standings' table
-				let tableHeader = '<thead class="thead-dark"><tr><th scope="col">Team</th><th scope="col">Games</th><th scope="col">Won</th><th scope="col">Drawn</th><th scope="col">Lost</th><th scope="col">Points</th></tr></thead><tbody>';
-
-				$("#standings").empty();
-				$("#standings").append('<p>Bundesliga standings as of ' + localStandingsUpdated.toString() + '</p>');
-
-				// push into array the initial <table> tag and then the
-				// header
-				tableStructure.push('<table class="table table-hover">', tableHeader);
-				// for loop to push into array each team's data
-				for (var j = 0; j < bundesliga.standings[0].table.length; j++) {
-					let currentTeam = bundesliga.standings[0].table[j];
-					tableStructure.push('<tr><th scope="row">' + currentTeam.team.name + '</th><td>' + currentTeam.playedGames + '</td><td>' + currentTeam.won + '</td><td>' + currentTeam.draw + '</td><td>' + currentTeam.lost + '</td><td>' + currentTeam.points + '</td></tr>');
-				};
-				// close <tbody> and <table> by pushing them as last
-				// elements of array
-				tableStructure.push('</tbody></table>');
-				// finally, append standings' table to DOM
-				$("#standings").append(tableStructure.join(''));
-			},
-		});
-	});
-	$("#seriearequest").click(function(event) {
-		const serieaurl = 'https://api.football-data.org/v2/competitions/SA/standings';
-		$.ajax({
-			headers: { 'X-Auth-Token': '6b89a387b385470d833ab3b614a5eb67' },
-			url: serieaurl,
-			dataType: 'text',
-			type: 'GET',
-			success: function(data, textStatus, jqXHR) {
-				let seriea = JSON.parse(data);
-				let localStandingsUpdated = new Date(seriea.competition.lastUpdated);
-				let tableStructure = []; // array to contain the standings' table
-				// Header of the standings' table
-				let tableHeader = '<thead class="thead-dark"><tr><th scope="col">Team</th><th scope="col">Games</th><th scope="col">Won</th><th scope="col">Drawn</th><th scope="col">Lost</th><th scope="col">Points</th></tr></thead><tbody>';
-
-				$("#standings").empty();
-				$("#standings").append('<p>Serie A standings as of ' + localStandingsUpdated.toString() + '</p>');
-
-				// push into array the initial <table> tag and then the
-				// header
-				tableStructure.push('<table class="table table-hover">', tableHeader);
-				// for loop to push into array each team's data
-				for (var j = 0; j < seriea.standings[0].table.length; j++) {
-					let currentTeam = seriea.standings[0].table[j];
+				for (var j = 0; j < parsedData.standings[0].table.length; j++) {
+					let currentTeam = parsedData.standings[0].table[j];
 					tableStructure.push('<tr><th scope="row">' + currentTeam.team.name + '</th><td>' + currentTeam.playedGames + '</td><td>' + currentTeam.won + '</td><td>' + currentTeam.draw + '</td><td>' + currentTeam.lost + '</td><td>' + currentTeam.points + '</td></tr>');
 				};
 				// close <tbody> and <table> by pushing them as last
