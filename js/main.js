@@ -1,112 +1,52 @@
 $(document).ready(function() {
-	$("#atleticommatches").click(function(event) {
-		const atleticommatchesurl = 'https://api.football-data.org/v2/teams/78/matches?status=SCHEDULED';
+	$(".teammatches").click(function(event) {
+/*	$("#atleticommatches").click(function(event) { */
+		let teamurl, teamName, teamId
+		if (event.target.id == 'atleticommatches') {
+			teamurl = 'https://api.football-data.org/v2/teams/78/matches?status=SCHEDULED';
+			teamName = 'Atletico Madrid';
+			teamSpanId = 'atleticom';
+			teamId = 78;
+		} else if (event.target.id == 'liverpoolmatches') {
+			teamurl = 'https://api.football-data.org/v2/teams/64/matches?status=SCHEDULED';
+			teamName = 'Liverpool';
+			teamSpanId = 'liverpool';
+			teamId = 64;
+		} else if (event.target.id == 'chelseamatches') {
+			teamurl = 'https://api.football-data.org/v2/teams/61/matches?status=SCHEDULED';
+			teamName = 'Chelsea';
+			teamSpanId = 'chelsea';
+			teamId = 61;
+		} else if (event.target.id == 'napolimatches') {
+			teamurl = 'https://api.football-data.org/v2/teams/113/matches?status=SCHEDULED';
+			teamName = 'Napoli';
+			teamSpanId = 'napoli';
+			teamId = 113;
+		} else {
+			return 1;
+		};
 		$.ajax({
 			headers: { 'X-Auth-Token': '6b89a387b385470d833ab3b614a5eb67' },
-			url: atleticommatchesurl,
+			url: teamurl,
 			dataType: 'text',
 			type: 'GET',
 			success: function(data, textStatus, jqXHR) {
-				let atleticom = JSON.parse(data);
+				let parsedData = JSON.parse(data);
 				$("#fixtures").empty();
-				$("#fixtures").append('<p>Atletico Madrid next ' + atleticom.count + ' upcoming matches</p>');
-				for (var i = 0; i < atleticom.matches.length; i++) {
-					let localMatchTime = new Date(atleticom.matches[i].utcDate);
-					$("#fixtures").append('<p class="matchtimes">On ' + localMatchTime.toString() + ' for <span class="competition">' + atleticom.matches[i].competition.name + '</span></p>');
+				$("#fixtures").append('<p>' + teamName + ' next ' + parsedData.count + ' upcoming matches</p>');
+				for (var i = 0; i < parsedData.matches.length; i++) {
+					let localMatchTime = new Date(parsedData.matches[i].utcDate);
+					$("#fixtures").append('<p class="matchtimes">On ' + localMatchTime.toString() + ' for <span class="competition">' + parsedData.matches[i].competition.name + '</span></p>');
 
 					// take the ids of both teams to check if our team
 					// is playing home or away, and accordingly colorize
 					// the name
-					let homeTeam = atleticom.matches[i].homeTeam.id;
-					let awayTeam = atleticom.matches[i].awayTeam.id;
-					if (homeTeam == 78) { // 78 == Atletico Madrid
-						$("#fixtures").append('<p class="matchname"><span id="atleticom">' + atleticom.matches[i].homeTeam.name + '</span> vs ' + atleticom.matches[i].awayTeam.name + '</p>');
+					let homeTeam = parsedData.matches[i].homeTeam.id;
+					let awayTeam = parsedData.matches[i].awayTeam.id;
+					if (homeTeam == teamId) {
+						$("#fixtures").append('<p class="matchname"><span id="' + teamSpanId + '">' + parsedData.matches[i].homeTeam.name + '</span> vs ' + parsedData.matches[i].awayTeam.name + '</p>');
 					} else {
-						$("#fixtures").append('<p class="matchname">' + atleticom.matches[i].homeTeam.name + ' vs <span id="atleticom">' + atleticom.matches[i].awayTeam.name + '</span></p>');
-					};
-				}
-			},
-		});
-	});
-	$("#chelseamatches").click(function(event) {
-		const chelseamatchesurl = 'https://api.football-data.org/v2/teams/61/matches?status=SCHEDULED';
-		$.ajax({
-			headers: { 'X-Auth-Token': '6b89a387b385470d833ab3b614a5eb67' },
-			url: chelseamatchesurl,
-			dataType: 'text',
-			type: 'GET',
-			success: function(data, textStatus, jqXHR) {
-				let chelsea = JSON.parse(data);
-				$("#fixtures").empty();
-				$("#fixtures").append('<p>Chelsea next ' + chelsea.count + ' upcoming matches</p>');
-				for (var i = 0; i < chelsea.matches.length; i++) {
-					let localMatchTime = new Date(chelsea.matches[i].utcDate);
-					$("#fixtures").append('<p class="matchtimes">On ' + localMatchTime.toString() + ' for <span class="competition">' + chelsea.matches[i].competition.name + '</span></p>');
-					// take the ids of both teams to check if our team
-					// is playing home or away, and accordingly colorize
-					// the name
-					let homeTeam = chelsea.matches[i].homeTeam.id;
-					let awayTeam = chelsea.matches[i].awayTeam.id;
-					if (homeTeam == 61) { // 61 == Chelsea
-						$("#fixtures").append('<p class="matchname"><span id="chelsea">' + chelsea.matches[i].homeTeam.name + '</span> vs ' + chelsea.matches[i].awayTeam.name + '</p>');
-					} else {
-						$("#fixtures").append('<p class="matchname">' + chelsea.matches[i].homeTeam.name + ' vs <span id="chelsea">' + chelsea.matches[i].awayTeam.name + '</span></p>');
-					};
-				}
-			},
-		});
-	});
-	$("#liverpoolmatches").click(function(event) {
-		const liverpoolmatchesurl = 'https://api.football-data.org/v2/teams/64/matches?status=SCHEDULED';
-		$.ajax({
-			headers: { 'X-Auth-Token': '6b89a387b385470d833ab3b614a5eb67' },
-			url: liverpoolmatchesurl,
-			dataType: 'text',
-			type: 'GET',
-			success: function(data, textStatus, jqXHR) {
-				let liverpool = JSON.parse(data);
-				$("#fixtures").empty();
-				$("#fixtures").append('<p>Liverpool next ' + liverpool.count + ' upcoming matches</p>');
-				for (var i = 0; i < liverpool.matches.length; i++) {
-					let localMatchTime = new Date(liverpool.matches[i].utcDate);
-					$("#fixtures").append('<p class="matchtimes">On ' + localMatchTime.toString() + ' for <span class="competition">' + liverpool.matches[i].competition.name + '</span></p>')
-					// take the ids of both teams to check if our team 
-					// is playing home or away, and accordingly colorize 
-					// the name
-					let homeTeam = liverpool.matches[i].homeTeam.id;
-					let awayTeam = liverpool.matches[i].awayTeam.id;
-					if (homeTeam == 64) { // 64 == Liverpool
-						$("#fixtures").append('<p class="matchname"><span id="liverpool">' + liverpool.matches[i].homeTeam.name + '</span> vs ' + liverpool.matches[i].awayTeam.name + '</p>');
-					} else {
-						$("#fixtures").append('<p class="matchname">' + liverpool.matches[i].homeTeam.name + ' vs <span id="liverpool">' + liverpool.matches[i].awayTeam.name + '</span></p>');
-					};
-				}
-			},
-		});
-	});
-	$("#napolimatches").click(function(event) {
-		const napolimatchesurl = 'https://api.football-data.org/v2/teams/113/matches?status=SCHEDULED';
-		$.ajax({
-			headers: { 'X-Auth-Token': '6b89a387b385470d833ab3b614a5eb67' },
-			url: napolimatchesurl,
-			dataType: 'text',
-			type: 'GET',
-			success: function(data, textStatus, jqXHR) {
-				let napoli = JSON.parse(data);
-				$("#fixtures").empty();
-				$("#fixtures").append('<p>Napoli next ' + napoli.count + ' upcoming matches</p>');
-				for (var i = 0; i < napoli.matches.length; i++) {
-					let localMatchTime = new Date(napoli.matches[i].utcDate);
-					$("#fixtures").append('<p class="matchtimes">On ' + localMatchTime.toString() + ' for <span class="competition">' + napoli.matches[i].competition.name + '</span></p>');
-					// take the ids of both teams to check if our team 
-					// is playing home or away, and accordingly colorize 
-					// the name
-					let homeTeam = napoli.matches[i].homeTeam.id;
-					let awayTeam = napoli.matches[i].awayTeam.id;
-					if (homeTeam == 113) { // 113 == Napoli
-						$("#fixtures").append('<p class="matchname"><span id="napoli">' + napoli.matches[i].homeTeam.name + '</span> vs ' + napoli.matches[i].awayTeam.name + '</p>');
-					} else {
-						$("#fixtures").append('<p class="matchname">' + napoli.matches[i].homeTeam.name + ' vs <span id="napoli">' + napoli.matches[i].awayTeam.name + '</span></p>');
+						$("#fixtures").append('<p class="matchname">' + parsedData.matches[i].homeTeam.name + ' vs <span id="' + teamSpanId + '">' + parsedData.matches[i].awayTeam.name + '</span></p>');
 					};
 				}
 			},
@@ -249,3 +189,4 @@ $(document).ready(function() {
 		});
 	});
 });
+
