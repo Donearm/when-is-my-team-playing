@@ -1,0 +1,51 @@
+body {
+	font-family: 'Lora', serif;
+	font-size: 13pt;
+}
+
+#titlerow {
+	padding-left: 2em;
+}
+.tagline {
+	padding-right: 2em;
+}
+
+#teamrequests, #standingsrequest, #fixtures, #standings {
+	margin-top: 0.4em;
+	margin-bottom: 0.4em;
+	padding-left: 1.5em;
+}
+
+.matchtimes {
+	font-size: 90%;
+	font-style: italic;
+}
+.matchname {
+	font-size: 100%;
+	font-weight: bold;
+}
+.competition {
+	font-weight: bold;
+}
+
+/* Team colours */
+#atleticom {
+	color: #CB3524;
+}
+#liverpool {
+	color: #C8102E;
+}
+#chelsea {
+	color: #034694;
+}
+#napoli {
+	color: #007FFF;
+}
+
+/* Standings' table styling */
+tr {
+	text-align: right;
+}
+tr th {
+	text-align: left;
+}
