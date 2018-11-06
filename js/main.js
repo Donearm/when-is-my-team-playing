@@ -7,7 +7,6 @@ $(document).ready(function() {
 			dataType: 'text',
 			type: 'GET',
 			success: function(data, textStatus, jqXHR) {
-				console.log(data);
 				let atleticom = JSON.parse(data);
 				$("#fixtures").empty();
 				$("#fixtures").append('<p>Atletico Madrid next ' + atleticom.count + ' upcoming matches</p>');
@@ -37,7 +36,6 @@ $(document).ready(function() {
 			dataType: 'text',
 			type: 'GET',
 			success: function(data, textStatus, jqXHR) {
-				console.log(data);
 				let chelsea = JSON.parse(data);
 				$("#fixtures").empty();
 				$("#fixtures").append('<p>Chelsea next ' + chelsea.count + ' upcoming matches</p>');
@@ -66,7 +64,6 @@ $(document).ready(function() {
 			dataType: 'text',
 			type: 'GET',
 			success: function(data, textStatus, jqXHR) {
-				console.log(data);
 				let liverpool = JSON.parse(data);
 				$("#fixtures").empty();
 				$("#fixtures").append('<p>Liverpool next ' + liverpool.count + ' upcoming matches</p>');
@@ -95,7 +92,6 @@ $(document).ready(function() {
 			dataType: 'text',
 			type: 'GET',
 			success: function(data, textStatus, jqXHR) {
-				console.log(data);
 				let napoli = JSON.parse(data);
 				$("#fixtures").empty();
 				$("#fixtures").append('<p>Napoli next ' + napoli.count + ' upcoming matches</p>');
@@ -128,7 +124,6 @@ $(document).ready(function() {
 			dataType: 'text',
 			type: 'GET',
 			success: function(data, textStatus, jqXHR) {
-				console.log(data);
 				let liga = JSON.parse(data);
 				let localStandingsUpdated = new Date(liga.competition.lastUpdated);
 				let tableStructure = []; // array to contain the standings' table
@@ -155,7 +150,6 @@ $(document).ready(function() {
 		});
 	});
 	$("#plrequest").click(function(event) {
-		console.log(event.target.id);
 		const plurl = 'https://api.football-data.org/v2/competitions/PL/standings';
 		$.ajax({
 			headers: { 'X-Auth-Token': '6b89a387b385470d833ab3b614a5eb67' },
@@ -163,7 +157,6 @@ $(document).ready(function() {
 			dataType: 'text',
 			type: 'GET',
 			success: function(data, textStatus, jqXHR) {
-				console.log(data);
 				let pl = JSON.parse(data);
 				let localStandingsUpdated = new Date(pl.competition.lastUpdated);
 				let tableStructure = []; // array to contain the standings' table
@@ -197,7 +190,6 @@ $(document).ready(function() {
 			dataType: 'text',
 			type: 'GET',
 			success: function(data, textStatus, jqXHR) {
-				console.log(data);
 				let bundesliga = JSON.parse(data);
 				let localStandingsUpdated = new Date(bundesliga.competition.lastUpdated);
 				let tableStructure = []; // array to contain the standings' table
