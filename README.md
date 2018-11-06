@@ -10,6 +10,8 @@ Therefore I created this small project to just let me know when are the next int
 
 This project is also a test bed for playing with jQuery, HTML5, Bootstrap. I wrote this in a couple of days and plan to modify it from time to time. Probably it is of no use to you until a search is implemented. Until then, fork and change the teams/leagues.
 
+#### [See it in action](https://www.gianlucafiore.it/when-is-my-team-playing/)
+
 ## Contribute
 
 PRs accepted. Fork to select your own teams.
