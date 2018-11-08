@@ -107,5 +107,50 @@ $(document).ready(function() {
 			},
 		});
 	});
+	$("#championsrequest").click(function(event) {
+		// Champions' League specific standings request
+		let leagueurl, leagueName
+		leagueurl = 'https://api.football-data.org/v2/competitions/CL/standings';
+		leagueName = "UEFA Champions' League";
+		$.ajax({
+			headers: { 'X-Auth-Token': '6b89a387b385470d833ab3b614a5eb67' },
+			url: leagueurl,
+			dataType: 'text',
+			type: 'GET',
+			success: function(data, textStatus, jqXHR) {
+				let parsedData = JSON.parse(data);
+				let localStandingsUpdated = new Date(parsedData.competition.lastUpdated);
+				let tableStructure = []; // array to contain the standings' table
+				// Header of the standings' table
+				let tableHeader = '<thead class="thead-dark"><tr><th scope="col">Team</th><th scope="col">Games</th><th scope="col">Won</th><th scope="col">Drawn</th><th scope="col">Lost</th><th scope="col">Points</th></tr></thead><tbody>';
+
+				$("#standings").empty();
+				$("#standings").append('<p>' + leagueName + ' standings as of ' + localStandingsUpdated.toString() + '</p>');
+
+				// push into array the initial <table> tag and then the
+				// header
+				tableStructure.push('<table class="table table-hover">', tableHeader);
+				// for loop to push into array each team's data
+				for (var j = 0; j < parsedData.standings.length; j++) {
+					if (parsedData.standings[j].type == "TOTAL") { // we want only the total standings, not home or away only
+						for (var t = 0; t < 4; t++) { // 4 teams per group
+							let currentTeam = parsedData.standings[j].table[t];
+							tableStructure.push('<tr><th scope="row">' + currentTeam.team.name + '</th><td>' + currentTeam.playedGames + '</td><td>' + currentTeam.won + '</td><td>' + currentTeam.draw + '</td><td>' + currentTeam.lost + '</td><td>' + currentTeam.points + '</td></tr>');
+						};
+						// Group H is the last one, don't add a table
+						// header after the standings of it
+						if (parsedData.standings[j].group !== 'GROUP_H') {
+							tableStructure.push('<table class="table table-hover">', tableHeader);
+						};
+					};
+				};
+				// close <tbody> and <table> by pushing them as last
+				// elements of array
+				tableStructure.push('</tbody></table>');
+				// finally, append standings' table to DOM
+				$("#standings").append(tableStructure.join(''));
+			},
+		});
+	});
 });
 
