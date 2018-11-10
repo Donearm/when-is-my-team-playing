@@ -1,6 +1,11 @@
 body {
 	font-family: 'Lora', serif;
 	font-size: 13pt;
+	background-image: url('../media/background.jpg');
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
 }
 
 #titlerow {
