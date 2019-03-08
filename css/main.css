@@ -11,6 +11,10 @@ body {
 #titlerow {
 	padding-left: 2em;
 }
+#titlerow h1 {
+	text-transform: uppercase;
+	font-weight: bold;
+}
 .tagline {
 	padding-right: 2em;
 }
