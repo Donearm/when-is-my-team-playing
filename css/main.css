@@ -26,12 +26,34 @@ body {
 }
 
 #teamrequests button {
-	color: #00008B;
-	border-color: #00008B;
+	color: #f6F1EE;
+	border-color: #795A48;
+	background-color: #795A48;
 }
 #teamrequests button:hover {
-	background-color: #D2D2D2;
+	color: #795A48;
+	background-color: #DED7DF;
 }
+button.leaguerequests {
+	color: #A9BBC7;
+	border-color: #2B3443;
+	background-color: #2B3443;
+}
+button.leaguerequests:hover {
+	color: #2B3443;
+	background-color: #DED7DF;
+}
+#resetbtn {
+	color: #DED7DF; 
+	border-color: #7A6D5C;
+	background-color: #7A6D5C;
+}
+#resetbtn:hover {
+	color: #738A7A;
+	border-color: #2B3443;
+	background-color: #CCDACB;
+}
+
 
 .matchtimes {
 	font-size: 90%;
@@ -68,7 +90,7 @@ tr th {
 }
 /* change Bootstrap's default hover color */
 .table tbody tr:hover td, .table tbody tr:hover th {
-    background-color: #E0E0E0;
+    background-color: #B69B80;
 }
 
 .btn {
@@ -77,5 +99,12 @@ tr th {
 }
 
 a {
-	color: #00008B;
+	color: #034694;
+}
+a:hover {
+	color: #B69B80;
+}
+.btn:focus, .btn:active {
+	outline: none;
+	box-shadow: none;
 }
