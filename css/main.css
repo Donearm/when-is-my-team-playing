@@ -90,7 +90,8 @@ tr th {
 }
 /* change Bootstrap's default hover color */
 .table tbody tr:hover td, .table tbody tr:hover th {
-    background-color: #B69B80;
+	color: #DED7DF; 
+	background-color: #795A48;
 }
 
 .btn {
