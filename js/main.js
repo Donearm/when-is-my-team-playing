@@ -13,11 +13,6 @@ $(document).ready(function() {
 			teamName = 'Liverpool';
 			teamSpanId = 'liverpool';
 			teamId = 64;
-		} else if (event.target.id == 'chelseamatches') {
-			teamurl = 'https://api.football-data.org/v2/teams/61/matches?status=SCHEDULED';
-			teamName = 'Chelsea';
-			teamSpanId = 'chelsea';
-			teamId = 61;
 		} else if (event.target.id == 'napolimatches') {
 			teamurl = 'https://api.football-data.org/v2/teams/113/matches?status=SCHEDULED';
 			teamName = 'Napoli';
