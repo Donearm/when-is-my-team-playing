@@ -35,32 +35,31 @@ body {
 }
 
 #teamrequests button {
-	color: #f6F1EE;
-	border-color: #795A48;
-	background-color: #795A48;
+	color: #f6f1ee;
+	border-color: #455877;
+	background-color: #455877;
 }
 #teamrequests button:hover {
-	color: #795A48;
-	background-color: #DED7DF;
+	color: #a92a09;
+	background-color: #f6f1ee;
 }
 button.leaguerequests {
-	color: #A9BBC7;
+	color: #f6f1ee;
 	border-color: #2B3443;
 	background-color: #2B3443;
 }
 button.leaguerequests:hover {
-	color: #2B3443;
+	color: #216d00;
 	background-color: #DED7DF;
 }
 #resetbtn {
-	color: #DED7DF; 
-	border-color: #7A6D5C;
-	background-color: #7A6D5C;
+	color: #f6f1ee;
+	border-color: #a92a09;
+	background-color: #a92a09;
 }
 #resetbtn:hover {
-	color: #2B3443;
-	border-color: #2B3443;
-	background-color: #CCDACB;
+	color: #a92a09;
+	background-color: #f6f1ee;
 }
 
 
@@ -96,8 +95,8 @@ tr th {
 }
 /* change Bootstrap's default hover color */
 .table tbody tr:hover td, .table tbody tr:hover th {
-	color: #DED7DF; 
-	background-color: #795A48;
+	color: #f6f1ee;
+	background-color: #a92a09;
 }
 
 .btn {
@@ -109,7 +108,7 @@ a {
 	color: #034694;
 }
 a:hover {
-	color: #B69B80;
+	color: #a92a09;
 }
 .btn:focus, .btn:active {
 	outline: none;
