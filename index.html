@@ -47,34 +47,36 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
 
-  <div id="titlerow" class="row">
-    <h1>When is my team playing?</h1>
-    <p class="tagline">A disgruntled football fan in search of only next 
-    favourite's team match and relative standings practical solution. 
-    Only the teams I care about, only the league standings I watch. No 
-    gossips, stats or journalistic rambling. All data thanks to <a 
-                                  href="https://www.football-data.org">Football Data API</a>.
-    </p>
+  <div id="upperpart" class="whitebackground">
+    <div id="titlerow" class="row">
+      <h1>When is my team playing?</h1>
+      <p class="tagline">A disgruntled football fan in search of only next 
+      favourite's team match and relative standings practical solution. 
+      Only the teams I care about, only the league standings I watch. No 
+      gossips, stats or journalistic rambling. All data thanks to <a 
+                                    href="https://www.football-data.org">Football Data API</a>.
+      </p>
+    </div>
+    <div id="teamrequests" class="row">
+      <button id="atleticommatches" class="teammatches btn btn-outline-primary mr-1">Next Atletico Madrid Matches</button>
+      <button id="liverpoolmatches" class="teammatches btn btn-outline-primary mr-1">Next Liverpool Matches</button>
+      <button id="napolimatches" class="teammatches btn btn-outline-primary mr-1">Next Napoli Matches</button>
+    </div>
+    <div id="standingsrequest" class="row">
+      <button id="ligarequest" class="leaguerequests btn btn-outline-dark mr-1">Liga 
+        Standings</button>
+      <button id="plrequest" class="leaguerequests btn btn-outline-dark mr-1">Premier 
+        League Standings</button>
+      <button id="bundesligarequest" class="leaguerequests btn
+      btn-outline-dark mr-1">Bundesliga Standings</button>
+      <button id="seriearequest" class="leaguerequests btn btn-outline-dark mr-1">Serie A 
+        Standings</button>
+      <button id="championsrequest" class="leaguerequests btn 
+      btn-outline-dark mr-1">Champions' League Standings</button>
+      <button id="resetbtn" class="btn btn-secondary mr-1">Clear</button>
+    </div>
   </div>
-  <div id="teamrequests" class="row">
-    <button id="atleticommatches" class="teammatches btn btn-outline-primary mr-1">Next Atletico Madrid Matches</button>
-    <button id="liverpoolmatches" class="teammatches btn btn-outline-primary mr-1">Next Liverpool Matches</button>
-    <button id="napolimatches" class="teammatches btn btn-outline-primary mr-1">Next Napoli Matches</button>
-  </div>
-  <div id="standingsrequest" class="row">
-    <button id="ligarequest" class="leaguerequests btn btn-outline-dark mr-1">Liga 
-      Standings</button>
-    <button id="plrequest" class="leaguerequests btn btn-outline-dark mr-1">Premier 
-      League Standings</button>
-    <button id="bundesligarequest" class="leaguerequests btn
-    btn-outline-dark mr-1">Bundesliga Standings</button>
-    <button id="seriearequest" class="leaguerequests btn btn-outline-dark mr-1">Serie A 
-      Standings</button>
-    <button id="championsrequest" class="leaguerequests btn 
-    btn-outline-dark mr-1">Champions' League Standings</button>
-    <button id="resetbtn" class="btn btn-secondary mr-1">Clear</button>
-  </div>
-  <div class="row">
+  <div class="row greenbackground">
     <div id="fixtures" class="col-lg"></div>
     <div id="standings" class="col-lg-7 table-responsive"></div>
   </div>

@@ -1,19 +1,31 @@
 body {
 	font-family: 'Lora', serif;
 	font-size: 13pt;
-	background: #216d00;
 	color: #f6f1ee;
+	background: #216d00;
 }
 
+.whitebackground {
+	background: #f6f1ee;
+}
+.greenbackground {
+	background: #216d00;
+}
+
+#upperpart {
+	padding-bottom: 0.3em;
+}
 #titlerow {
 	padding-left: 2em;
 }
 #titlerow h1 {
 	text-transform: uppercase;
 	font-weight: bold;
+	color: #216d00;
 }
 .tagline {
 	padding-right: 2em;
+	color: #2b3443;
 }
 
 #teamrequests, #standingsrequest, #fixtures, #standings {
@@ -102,4 +114,9 @@ a:hover {
 .btn:focus, .btn:active {
 	outline: none;
 	box-shadow: none;
+}
+
+hr {
+	background: #f6f1ee;
+	height: 0.3em;
 }
