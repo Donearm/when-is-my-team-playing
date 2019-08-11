@@ -18,6 +18,11 @@ $(document).ready(function() {
 			teamName = 'Napoli';
 			teamSpanId = 'napoli';
 			teamId = 113;
+		} else if (event.target.id == 'borussiamatches') {
+			teamurl = 'https://api.football-data.org/v2/teams/4/matches?status=SCHEDULED';
+			teamName = 'Borussia Dortmund';
+			teamSpanId = 'borussia';
+			teamId = 4;
 		} else {
 			return 1;
 		};
