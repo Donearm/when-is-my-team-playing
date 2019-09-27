@@ -1,24 +1,24 @@
 $(document).ready(function() {
-	$(".teammatches").click(function(event) {
+	$(".teammatches").on("click", function(event) {
 		// declare variables needed to differentiate the AJAX request
 		// according to which team matches were requested
 		let teamurl, teamName, teamId
-		if (event.target.id == 'atleticommatches') {
+		if (event.currentTarget.id == 'atleticommatches') {
 			teamurl = 'https://api.football-data.org/v2/teams/78/matches?status=SCHEDULED';
 			teamName = 'Atletico Madrid';
 			teamSpanId = 'atleticom';
 			teamId = 78;
-		} else if (event.target.id == 'liverpoolmatches') {
+		} else if (event.currentTarget.id == 'liverpoolmatches') {
 			teamurl = 'https://api.football-data.org/v2/teams/64/matches?status=SCHEDULED';
 			teamName = 'Liverpool';
 			teamSpanId = 'liverpool';
 			teamId = 64;
-		} else if (event.target.id == 'napolimatches') {
+		} else if (event.currentTarget.id == 'napolimatches') {
 			teamurl = 'https://api.football-data.org/v2/teams/113/matches?status=SCHEDULED';
 			teamName = 'Napoli';
 			teamSpanId = 'napoli';
 			teamId = 113;
-		} else if (event.target.id == 'borussiamatches') {
+		} else if (event.currentTarget.id == 'borussiamatches') {
 			teamurl = 'https://api.football-data.org/v2/teams/4/matches?status=SCHEDULED';
 			teamName = 'Borussia Dortmund';
 			teamSpanId = 'borussia';
@@ -53,24 +53,26 @@ $(document).ready(function() {
 			},
 		});
 	});
-	$("#resetbtn").click(function(event) {
+/*	$("#resetbtn").click(function(event) { */
+	$("#resetbtn").on("click", function(event) {
 		$("#fixtures").html(" ");
 		$("#standings").html(" ");
 	});
-	$(".leaguerequests").click(function(event) {
+/*	$(".leaguerequests").click(function(event) { */
+	$(".leaguerequests").on("click", function(event) {
 		// declare variables needed to differentiate the AJAX request
 		// according to which league standings was requested
 		let leagueurl, leagueName
-		if (event.target.id == 'ligarequest') {
+		if (event.currentTarget.id == 'ligarequest') {
 			leagueurl = 'https://api.football-data.org/v2/competitions/PD/standings';
 			leagueName = 'Liga';
-		} else if (event.target.id == 'plrequest') {
+		} else if (event.currentTarget.id == 'plrequest') {
 			leagueurl = 'https://api.football-data.org/v2/competitions/PL/standings';
 			leagueName = 'Premier League';
-		} else if (event.target.id == 'bundesligarequest') {
+		} else if (event.currentTarget.id == 'bundesligarequest') {
 			leagueurl = 'https://api.football-data.org/v2/competitions/BL1/standings';
 			leagueName = 'Bundesliga';
-		} else if (event.target.id == 'seriearequest') {
+		} else if (event.currentTarget.id == 'seriearequest') {
 			leagueurl = 'https://api.football-data.org/v2/competitions/SA/standings';
 			leagueName = 'Serie A';
 		} else {
