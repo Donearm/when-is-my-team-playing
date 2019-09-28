@@ -129,7 +129,7 @@ hr {
 .card .card_image img {
 	width: inherit;
 	height: inherit;
-	border-radius: 40px;
+	border-radius: 30px;
 	object-fit: scale-down;
 }
 
