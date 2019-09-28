@@ -47,8 +47,8 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
 
-  <div id="upperpart" class="whitebackground">
-    <div id="titlerow" class="row">
+  <div id="upperpart" class="row whitebackground">
+    <div id="titlerow" class="col-100 whitebackground">
       <h1>When is my team playing?</h1>
       <p class="tagline">A disgruntled football fan in search of only next 
       favourite's team match and relative standings practical solution. 
@@ -57,7 +57,8 @@
                                     href="https://www.football-data.org">Football Data API</a>.
       </p>
     </div>
-    <div id="teamrequests" class="row cards-list">
+    <div class="w-100"></div> <!-- force break -->
+    <div id="teamrequests" class="col-100 cards-list">
       <div id="atleticommatches" class="card 1 teammatches">
         <div class="card_image"><img title="Get Atletico Madrid matches"
                                      alt="Get Atletico Madrid matches"
@@ -84,7 +85,8 @@
         </div>
       </div>
     </div>
-    <div id="standingsrequest" class="row cards-list">
+    <div class="w-100"></div> <!-- force break -->
+    <div id="standingsrequest" class="col-100 cards-list">
       <div id="ligarequest" class="card 0 leaguerequests">
         <div class="card_image"><img title="Show La Liga standings"
                                      alt="Show La Liga standings"

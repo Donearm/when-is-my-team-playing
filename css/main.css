@@ -105,7 +105,7 @@ hr {
 
 .cards-list {
 	z-index: 0;
-	width: 50%;
+	width: 50% !important;
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
