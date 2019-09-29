@@ -15,6 +15,10 @@ body {
 #upperpart {
 	padding-bottom: 0.3em;
 }
+#lowerpart {
+	width: 100%;
+}
+
 #titlerow {
 	padding-left: 2em;
 } #titlerow h1 {
@@ -105,7 +109,7 @@ hr {
 
 .cards-list {
 	z-index: 0;
-	width: 50% !important;
+	width: 560px;
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
