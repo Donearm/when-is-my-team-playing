@@ -2,14 +2,14 @@ body {
 	font-family: 'Lora', serif;
 	font-size: 13pt;
 	color: #f6f1ee;
-	background: #216d00;
+	background: #2b3443;
 }
 
 .whitebackground {
 	background: #f6f1ee;
 }
-.greenbackground {
-	background: #216d00;
+.bluebackground {
+	background: #2b3443;
 }
 
 #upperpart {
@@ -21,10 +21,11 @@ body {
 
 #titlerow {
 	padding-left: 2em;
-} #titlerow h1 {
+} 
+#titlerow h1 {
 	text-transform: uppercase;
 	font-weight: bold;
-	color: #216d00;
+	color: #2b3443;
 }
 .tagline {
 	padding-right: 2em;
@@ -52,7 +53,7 @@ button.leaguerequests {
 	background-color: #2B3443;
 }
 button.leaguerequests:hover {
-	color: #216d00;
+	color: #a92a09;
 	background-color: #DED7DF;
 }
 
@@ -87,9 +88,15 @@ tr {
 	color: #f6f1ee;
 	text-align: right;
 }
-tr th {
+th {
 	text-align: left;
 }
+/*
+.table .thead-dark th {
+	color: #2b3443;
+	background-color: #f6f1ee;
+}
+*/
 /* change Bootstrap's default hover color */
 .table tbody tr:hover td, .table tbody tr:hover th {
 	color: #f6f1ee;
@@ -155,5 +162,5 @@ hr {
 }
 .card:active {
 	transform: scale(0.9, 0.9);
-	box-shadow: 5px 5px 30px 15px rgba(33,109,0,0.55), -5px -5px 30px 15px rgba(33,109,0,0.22);
+	box-shadow: 5px 5px 30px 15px rgba(169,42,9,0.55), -5px -5px 30px 15px rgba(169,42,9,0.22);
 }

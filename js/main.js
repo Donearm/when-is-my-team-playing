@@ -88,7 +88,7 @@ $(document).ready(function() {
 				let localStandingsUpdated = new Date(parsedData.competition.lastUpdated);
 				let tableStructure = []; // array to contain the standings' table
 				// Header of the standings' table
-				let tableHeader = '<thead class="thead-dark"><tr><th scope="col">Team</th><th scope="col" class="text-right">Games</th><th scope="col" class="text-right">Won</th><th scope="col" class="text-right">Drawn</th><th scope="col" class="text-right">Lost</th><th scope="col" class="text-right">Points</th></tr></thead><tbody>';
+				let tableHeader = '<thead class="thead-light"><tr><th scope="col">Team</th><th scope="col" class="text-right">Games</th><th scope="col" class="text-right">Won</th><th scope="col" class="text-right">Drawn</th><th scope="col" class="text-right">Lost</th><th scope="col" class="text-right">Points</th></tr></thead><tbody>';
 
 				$("#standings").empty();
 				$("#standings").append('<p>' + leagueName + ' standings as of ' + localStandingsUpdated.toString() + '</p>');
@@ -124,7 +124,7 @@ $(document).ready(function() {
 				let localStandingsUpdated = new Date(parsedData.competition.lastUpdated);
 				let tableStructure = []; // array to contain the standings' table
 				// Header of the standings' table
-				let tableHeader = '<thead class="thead-dark"><tr><th scope="col">Team</th><th scope="col" class="text-right">Games</th><th scope="col" class="text-right">Won</th><th scope="col" class="text-right">Drawn</th><th scope="col" class="text-right">Lost</th><th scope="col" class="text-right">Points</th></tr></thead><tbody>';
+				let tableHeader = '<thead class="thead-light"><tr><th scope="col">Team</th><th scope="col" class="text-right">Games</th><th scope="col" class="text-right">Won</th><th scope="col" class="text-right">Drawn</th><th scope="col" class="text-right">Lost</th><th scope="col" class="text-right">Points</th></tr></thead><tbody>';
 
 				$("#standings").empty();
 				$("#standings").append('<p>' + leagueName + ' standings as of ' + localStandingsUpdated.toString() + '</p>');
