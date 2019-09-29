@@ -84,6 +84,7 @@ button.leaguerequests:hover {
 
 /* Standings' table styling */
 tr {
+	color: #f6f1ee;
 	text-align: right;
 }
 tr th {
