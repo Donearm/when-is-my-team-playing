@@ -23,6 +23,11 @@ $(document).ready(function() {
 			teamName = 'Borussia Dortmund';
 			teamSpanId = 'borussia';
 			teamId = 4;
+		} else if (event.currentTarget.id == 'leedsmatches') {
+			teamurl = 'https://api.football-data.org/v2/teams/341/matches?status=SCHEDULED';
+			teamName = 'Leeds United';
+			teamSpanId = 'leeds';
+			teamId = 341;
 		} else {
 			return 1;
 		};
