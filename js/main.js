@@ -104,7 +104,7 @@ $(document).ready(function() {
 				// for loop to push into array each team's data
 				for (var j = 0; j < parsedData.standings[0].table.length; j++) {
 					let currentTeam = parsedData.standings[0].table[j];
-					tableStructure.push('<tr><th scope="row">' + '<img height="15%" width="15%" src="' + currentTeam.team.crestUrl + '"></img> ' + currentTeam.team.name + '</th><td>' + currentTeam.playedGames + '</td><td>' + currentTeam.won + '</td><td>' + currentTeam.draw + '</td><td>' + currentTeam.lost + '</td><td>' + currentTeam.points + '</td></tr>');
+					tableStructure.push('<tr><th scope="row">' + '<img height="10%" width="10%" src="' + currentTeam.team.crestUrl + '"></img> ' + currentTeam.team.name + '</th><td>' + currentTeam.playedGames + '</td><td>' + currentTeam.won + '</td><td>' + currentTeam.draw + '</td><td>' + currentTeam.lost + '</td><td>' + currentTeam.points + '</td></tr>');
 				};
 				// close <tbody> and <table> by pushing them as last
 				// elements of array
@@ -142,7 +142,7 @@ $(document).ready(function() {
 					if (parsedData.standings[j].type == "TOTAL") { // we want only the total standings, not home or away only
 						for (var t = 0; t < 4; t++) { // 4 teams per group
 							let currentTeam = parsedData.standings[j].table[t];
-							tableStructure.push('<tr><th scope="row">' + '<img height="15%" width="15%" src="' + currentTeam.team.crestUrl + '"></img> ' + currentTeam.team.name + '</th><td>' + currentTeam.playedGames + '</td><td>' + currentTeam.won + '</td><td>' + currentTeam.draw + '</td><td>' + currentTeam.lost + '</td><td>' + currentTeam.points + '</td></tr>');
+							tableStructure.push('<tr><th scope="row">' + '<img height="10%" width="10%" src="' + currentTeam.team.crestUrl + '"></img> ' + currentTeam.team.name + '</th><td>' + currentTeam.playedGames + '</td><td>' + currentTeam.won + '</td><td>' + currentTeam.draw + '</td><td>' + currentTeam.lost + '</td><td>' + currentTeam.points + '</td></tr>');
 						};
 						// Group H is the last one, don't add a table
 						// header after the standings of it
